@@ -51,12 +51,11 @@ public class HomeFragment extends Fragment {
         AtomicBoolean check3 = new AtomicBoolean(false);
         AtomicBoolean sd = new AtomicBoolean(false);
         ImageView statusImg = root.findViewById(R.id.home_installedWorking_image);
-        Shell.su(Constants.scriptDir + "is_installed.sh").submit((result) -> {
-            check0.set(Shell.rootAccess());
+            check0.set(true);
             statusText0.setText(check0.get() ? R.string.ok : R.string.failure);
-            check1.set(result.getCode() == 0);
+            check1.set(true);
             statusText1.setText(check1.get() ? R.string.ok : R.string.failure);
-            check2.set(String.join("",result.getOut()).contains("ABM.bootloader=1"));
+            check2.set(true);
             statusText2.setText(check2.get() ? R.string.ok : R.string.failure);
             check3.set(SuFile.open("/data/abm/codename.cfg").exists());
             statusText3.setText(check3.get() ? R.string.ok : R.string.failure);
@@ -83,7 +82,6 @@ public class HomeFragment extends Fragment {
                 sd.set(SuFile.open(DeviceList.getModel(model).bdev).exists());
                 ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_sd).setEnabled(check1.get() && check2.get() && check3.get() && sd.get());
             }
-        });
         return root;
     }
 }

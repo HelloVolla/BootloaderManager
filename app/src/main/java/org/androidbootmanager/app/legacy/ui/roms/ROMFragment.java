@@ -181,7 +181,7 @@ public class ROMFragment extends Fragment {
 
                                 if (!SuFile.open(e.file).delete())
                                     Toast.makeText(requireContext(),"Deleting configuration file: Error.",Toast.LENGTH_LONG).show();
-                                Shell.su("rm -rf /data/abm/bootset/" + e.file.replace("/data/abm/bootset/lk2nd/entries/","").replace(".conf","")).submit();
+                                Shell.sh("rm -rf /data/abm/bootset/" + e.file.replace("/data/abm/bootset/lk2nd/entries/","").replace(".conf","")).submit();
                                 updateEntries();
                             }))
                             .setPositiveButton(R.string.save, (p1, p2) -> {

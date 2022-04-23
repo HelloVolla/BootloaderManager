@@ -45,7 +45,7 @@ public class DoInstallWizardPageFragment extends Fragment {
         final TextView log = root.findViewById(R.id.wizard_installer_do_log);
         final LinkedList<String> queue = new LinkedList<>();
         AtomicBoolean hdone = new AtomicBoolean(false);
-        Shell.su("/data/data/org.androidbootmanager.app/assets/app_install.sh '" + imodel.getName().getValue() + "' " + imodel.getCodename().getValue()).to(queue, queue).submit((out)-> hdone.set(true));
+        Shell.sh("/data/data/org.androidbootmanager.app/assets/app_install.sh '" + imodel.getName().getValue() + "' " + imodel.getCodename().getValue()).to(queue, queue).submit((out)-> hdone.set(true));
         handler.post(new Runnable() {
             @Override
             public void run() {

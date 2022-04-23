@@ -221,7 +221,7 @@ public class DeviceROMInstallerWizardPageFragment extends Fragment {
                             initialStream.close();
                             outStream.close();
                             Log.i("ABM","copy done");
-                            Shell.su("/data/data/org.androidbootmanager.app/assets/Toolkit/simg2img /data/data/org.androidbootmanager.app/cache/unsparse.img " + pdump).exec();
+                            Shell.sh("/data/data/org.androidbootmanager.app/assets/Toolkit/simg2img /data/data/org.androidbootmanager.app/cache/unsparse.img " + pdump).exec();
                             requireActivity().runOnUiThread(() -> {
                                 model.setPositiveText(getString(R.string.next));
                                 model.setPositiveFragment(DeviceROMInstallerWizardPageFragment.class);

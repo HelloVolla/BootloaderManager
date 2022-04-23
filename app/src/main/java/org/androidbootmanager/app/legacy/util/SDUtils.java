@@ -161,7 +161,7 @@ public class SDUtils {
     @Nullable
     public static SDPartitionMeta generateMeta(String bdev, String pbdev) {
         SDPartitionMeta meta;
-        Shell.Result r = Shell.su("printf \"mm:%d:%d\\n\" `stat -c '0x%t 0x%T' " + bdev + "` && sgdisk " + bdev + " --print").exec();
+        Shell.Result r = Shell.sh("printf \"mm:%d:%d\\n\" `stat -c '0x%t 0x%T' " + bdev + "` && sgdisk " + bdev + " --print").exec();
         if (r.isSuccess())
             meta = new SDPartitionMeta();
         else

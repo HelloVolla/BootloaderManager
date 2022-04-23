@@ -228,7 +228,7 @@ public class SDCardFragment extends Fragment {
                                 .setTitle(getString(R.string.free_space_size, meta.dumpS(id).sizeFancy))
                                 .setView(v)
                                 .setNegativeButton(R.string.cancel, (d, p) -> d.dismiss())
-                                .setPositiveButton(R.string.create, (d, p) -> MiscUtils.w(requireContext(), R.string.creating_prog, () -> Shell.su(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --new " + meta.nid + ":" + start.getText() + ":" + end.getText() + " --typecode " + meta.nid + ":" + ddresolv[dd.getSelectedItemPosition()] + " --change-name " + meta.nid + ":'" + label.getText().toString().replace("'", "") + "' && sleep 1 && ls " + pbdev + meta.nid + (ddresolv[dd.getSelectedItemPosition()].equals("0700") ? (" && sm format public:" + meta.major + "," + (meta.minor + meta.nid)) : (ddresolv[dd.getSelectedItemPosition()].equals("8301") ? " && mkfs.ext4 " + pbdev + meta.nid : " && echo Warning: Unsure on how to format this partition."))).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
+                                .setPositiveButton(R.string.create, (d, p) -> MiscUtils.w(requireContext(), R.string.creating_prog, () -> Shell.sh(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --new " + meta.nid + ":" + start.getText() + ":" + end.getText() + " --typecode " + meta.nid + ":" + ddresolv[dd.getSelectedItemPosition()] + " --change-name " + meta.nid + ":'" + label.getText().toString().replace("'", "") + "' && sleep 1 && ls " + pbdev + meta.nid + (ddresolv[dd.getSelectedItemPosition()].equals("0700") ? (" && sm format public:" + meta.major + "," + (meta.minor + meta.nid)) : (ddresolv[dd.getSelectedItemPosition()].equals("8301") ? " && mkfs.ext4 " + pbdev + meta.nid : " && echo Warning: Unsure on how to format this partition."))).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
                                         .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                         .setMessage(String.join("\n", out) + "\n" + String.join("\n", err) + (String.join("", out).contains("old") ? "IMPORTANT: Please reboot!" : ""))
                                         .setPositiveButton(R.string.ok, (g, l) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))
@@ -273,14 +273,14 @@ public class SDCardFragment extends Fragment {
                         final AlertDialog[] dialog = {new AlertDialog.Builder(requireContext())
                                 .setCustomTitle(t)
                                 .setNegativeButton(R.string.delete, (w, p1) -> MiscUtils.sure(requireContext(), w, getString(R.string.delete_msg, meta.dumpS(id).id, SDUtils.codes.get(meta.dumpS(id).code), meta.dumpS(id).name), (d, p) -> {
-                                    MiscUtils.w(requireContext(), R.string.delete_prog, () -> Shell.su(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --delete " + meta.dumpS(id).id).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
+                                    MiscUtils.w(requireContext(), R.string.delete_prog, () -> Shell.sh(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --delete " + meta.dumpS(id).id).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
                                             .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                             .setMessage(String.join("\n", out) + "\n" + String.join("", err) + (String.join("", out).contains("old") ? "IMPORTANT: Please reboot!" : ""))
                                             .setPositiveButton(R.string.ok, (g, s) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))
                                             .setCancelable(false)
                                             .show())));
                                 }))
-                                .setNeutralButton(R.string.rename, (d, p) -> MiscUtils.w(requireContext(), R.string.renaming_prog, () -> Shell.su(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --change-name " + meta.dumpS(id).id + ":'" + label.getText().toString().replace("'", "") + "'").to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
+                                .setNeutralButton(R.string.rename, (d, p) -> MiscUtils.w(requireContext(), R.string.renaming_prog, () -> Shell.sh(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --change-name " + meta.dumpS(id).id + ":'" + label.getText().toString().replace("'", "") + "'").to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
                                         .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                         .setMessage(String.join("\n", out) + "\n" + String.join("", err) + (String.join("", out).contains("old") ? "IMPORTANT: Please reboot!" : ""))
                                         .setPositiveButton(R.string.ok, (g, s) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))
@@ -335,7 +335,7 @@ public class SDCardFragment extends Fragment {
         SDUtils.setupCodes(requireContext());
         AtomicReference<SDUtils.SDPartitionMeta> meta = new AtomicReference<>(generateMeta(DeviceList.getModel(model)));
         if (meta.get() == null) {
-            if (String.join("",Shell.su("sgdisk " + bdev + " --print").exec().getOut()).contains("invalid GPT and valid MBR")) {
+            if (String.join("",Shell.sh("sgdisk " + bdev + " --print").exec().getOut()).contains("invalid GPT and valid MBR")) {
                 ArrayList<String> out = new ArrayList<>();
                 ArrayList<String> err = new ArrayList<>();
                 new AlertDialog.Builder(requireActivity())
@@ -343,7 +343,7 @@ public class SDCardFragment extends Fragment {
                         .setCancelable(false)
                         .setMessage(R.string.sd_mbr)
                         .setTitle(R.string.fatal)
-                        .setPositiveButton(R.string.convert, (d, p) -> MiscUtils.w(requireContext(), R.string.convert_prog, () -> Shell.su("sm unmount `sm list-volumes public` && sgdisk " + bdev + " --mbrtogpt").to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireActivity())
+                        .setPositiveButton(R.string.convert, (d, p) -> MiscUtils.w(requireContext(), R.string.convert_prog, () -> Shell.sh("sm unmount `sm list-volumes public` && sgdisk " + bdev + " --mbrtogpt").to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireActivity())
                                 .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                 .setMessage(String.join("\n", out) + "\n" + String.join("\n", err))
                                 .setCancelable(false)
@@ -462,7 +462,7 @@ public class SDCardFragment extends Fragment {
                             initialStream.close();
                             outStream.close();
                             Log.i("ABM","copy done");
-                            Shell.su("/data/data/org.androidbootmanager.app/assets/Toolkit/simg2img /data/data/org.androidbootmanager.app/cache/unsparse.img " + outpath).exec();
+                            Shell.sh("/data/data/org.androidbootmanager.app/assets/Toolkit/simg2img /data/data/org.androidbootmanager.app/cache/unsparse.img " + outpath).exec();
                             Log.i("ABM","Result of delete: " + SuFile.open(targetFile.getAbsolutePath()).delete());
                         } catch (IOException e) {
                             requireActivity().runOnUiThread(() -> Toast.makeText(requireContext(), R.string.failure, Toast.LENGTH_LONG).show());

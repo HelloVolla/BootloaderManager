@@ -27,7 +27,7 @@ public class DebugActivity extends AppCompatActivity {
     public void shelldialog(String j) {
         ArrayList<String> o = new ArrayList<>();
         ArrayList<String> e = new ArrayList<>();
-        Shell.Result r = Shell.su(j).to(o, e).exec();
+        Shell.Result r = Shell.sh(j).to(o, e).exec();
         new AlertDialog.Builder(this)
                 .setTitle(j)
                 .setMessage("OUT channel:\n" + String.join("\n", o) + "\nOUT channel using get:\n" + String.join("\n", r.getOut()) + "\nERR channel:\n" + String.join("\n", e) + "\nERR channel using get:\n" + String.join("\n", r.getErr()))

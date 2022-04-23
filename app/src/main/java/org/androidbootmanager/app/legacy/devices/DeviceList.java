@@ -17,9 +17,10 @@ public class DeviceList {
     public static final ArrayList<String> deviceList = new ArrayList<>();
     public static final HashMap<String, List<String>> bspList = new HashMap<>();
     static {
-        //deviceList.add("cedric");
+        deviceList.add("mimameid");
         deviceList.add("yggdrasil");
         bspList.put("k63v2_64_bsp", Collections.singletonList("yggdrasil"));
+        bspList.put("GS5", Collections.singletonList("mimameid"));
     }
 
     public static DeviceModel getModel(String codename) {
@@ -35,15 +36,15 @@ public class DeviceList {
                 d.spartsize = 7340031f;
                 d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, DoInstallWizardPageFragment.class);
                 break;
-            /*case "cedric":
+            case "mimameid":
                 d = new DeviceModel();
-                d.codename = "cedric";
-                d.viewname = "Moto G5";
+                d.codename = "mimameid";
+                d.viewname = "Volla Phone 22";
                 d.bdev = "/dev/block/mmcblk1";
                 d.pbdev = "/dev/block/mmcblk1p";
-                d.usesLegacyDir = true;
-                d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, ExampleWizardPageFragment.class);
-                break;*/
+                d.spartsize = 7340031f;
+                d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, DoInstallWizardPageFragment.class);
+                break;
             default:
                 throw new RuntimeException(new IllegalStateException("DeviceModel not found: unknown device '" + codename + "'"));
         }

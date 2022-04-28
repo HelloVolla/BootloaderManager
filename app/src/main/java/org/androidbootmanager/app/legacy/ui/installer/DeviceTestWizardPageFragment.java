@@ -46,9 +46,18 @@ public class DeviceTestWizardPageFragment extends Fragment {
             model.setNegativeText(getString(R.string.device_btn));
             imodel.setCodename(Build.DEVICE);
         } else if (DeviceList.bspList.containsKey(Build.DEVICE)) {
-            img.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_no));
-            text.setText(getString(R.string.bsp_msg, Build.DEVICE));
-            model.setPositiveFragment(FindDeviceWizardPageFragment.class);
+            if (DeviceList.bspList.get(Build.DEVICE).size() > 1) {
+                img.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_no));
+                text.setText(getString(R.string.bsp_msg, Build.DEVICE));
+                model.setPositiveFragment(FindDeviceWizardPageFragment.class);
+            } else {
+                String codename = DeviceList.bspList.get(Build.DEVICE).get(0);
+                img.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_ok));
+                text.setText(getString(R.string.device_msg, codename));
+                model.setNegativeFragment(FindDeviceWizardPageFragment.class);
+                model.setNegativeText(getString(R.string.device_btn));
+                imodel.setCodename(codename);
+            }
         } else {
             img.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_no));
             text.setText(getString(R.string.wrong_device_msg, Build.DEVICE));

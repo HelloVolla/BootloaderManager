@@ -1,6 +1,7 @@
 package org.androidbootmanager.app.legacy.ui.home;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,17 +62,27 @@ public class HomeFragment extends Fragment {
             statusText3.setText(check3.get() ? R.string.ok : R.string.failure);
             statusImg.setImageDrawable(ContextCompat.getDrawable(requireActivity(),check1.get() && check2.get() && check3.get() ? R.drawable.ic_ok : R.drawable.ic_no));
             installButton.setVisibility((!(check1.get() && check2.get()) && (!check3.get())) && check0.get() ? View.VISIBLE : View.INVISIBLE);
-            try {
-                byte[] buf = new byte[100];
-                int len;
-                ByteArrayOutputStream s = new ByteArrayOutputStream();
-                InputStream i = SuFileInputStream.open("/data/abm/codename.cfg");
-                while ((len = i.read(buf)) > 0)
-                    s.write(buf, 0, len);
-                model.setCodename(s.toString("UTF-8").replace("\n",""));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (check3.get()) {
+                try {
+                    byte[] buf = new byte[100];
+                    int len;
+                    ByteArrayOutputStream s = new ByteArrayOutputStream();
+                    InputStream i = SuFileInputStream.open("/data/abm/codename.cfg");
+                    while ((len = i.read(buf)) > 0)
+                        s.write(buf, 0, len);
+                    model.setCodename(s.toString("UTF-8").replace("\n", ""));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                if (DeviceList.deviceList.contains(Build.DEVICE)) {
+                    model.setCodename(Build.DEVICE);
+                } else if (DeviceList.bspList.containsKey(Build.DEVICE) && DeviceList.bspList.get(Build.DEVICE).size() == 1) {
+                    model.setCodename(DeviceList.bspList.get(Build.DEVICE).get(0));
+                }
             }
+            if (!model.getCodename().getValue().isEmpty())
+                sd.set(SuFile.open(DeviceList.getModel(model).bdev).exists());
             installButton.setOnClickListener((v) -> startActivity(new Intent(requireActivity(), WizardActivity.class).putExtra("StartFragment", InstallerWelcomeWizardPageFragment.class)));
             ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_generalcfg).setEnabled(check1.get() && check2.get() && check3.get());
             ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_roms).setEnabled(check1.get() && check2.get() && check3.get());
@@ -79,8 +90,7 @@ public class HomeFragment extends Fragment {
             if (check1.get() && check2.get() && check3.get()) {
                 if (!((MainActivity) requireActivity()).mount(DeviceList.getModel(model)))
                     Toast.makeText(requireActivity(), R.string.bootset_fail, Toast.LENGTH_LONG).show();
-                sd.set(SuFile.open(DeviceList.getModel(model).bdev).exists());
-                ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_sd).setEnabled(check1.get() && check2.get() && check3.get() && sd.get());
+                ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_sd).setEnabled(sd.get());
             }
         return root;
     }

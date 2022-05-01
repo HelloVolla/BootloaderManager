@@ -62,7 +62,14 @@ public class AddROMChooseWizardPageFragment extends Fragment {
                     lastSelectedPosition = getAdapterPosition();
                     notifyDataSetChanged();
                     AddROMChooseWizardPageFragment.this.imodel.setROM(romsList.get(lastSelectedPosition));
-                    AddROMChooseWizardPageFragment.this.model.setPositiveFragment(DeviceROMInstallerWizardPageFragment.class);
+                    switch (imodel.getROM().getValue().type) {
+                        case UBUNTU:
+                            AddROMChooseWizardPageFragment.this.model.setPositiveFragment(DownloadROMInstallerWizardPageFragment.class);
+                            break;
+                        default:
+                            AddROMChooseWizardPageFragment.this.model.setPositiveFragment(DeviceROMInstallerWizardPageFragment.class);
+                            break;
+                    }
                 });
             }
         }

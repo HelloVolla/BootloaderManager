@@ -21,6 +21,8 @@
     <string name="select_droidboot_invalid">That does not look like an DroidBoot!</string>
     <string name="sure_title">Are you sure?</string>
     <string name="install">Install</string>
+    <string name="online">Online Installer</string>
+    <string name="download">Download</string>
     <string name="be_careful">YOU CAN LOOSE YOUR DATA! YOU CAN BRICK YOUR DEVICE! YOU CAN LOOSE YOUR IMEI! YOU CAN LOOSE YOUR MONEY! NOBODY IS RESPONSIBLE EXCEPT YOU! DO AT YOUR OWN RISK AND BE CAREFUL!</string>
     <string name="umount">Unmount Bootset</string>
     <string name="timeout">Timeout</string>
@@ -84,6 +86,7 @@
     <string name="wizard_devicerominstaller_text">Ready! Please follow the next steps for installing your ROM. If you redecided, you can click cancel. Nothing was changed until now except that your SD card got flashed.</string>
     <string name="installerWelcome">Welcome to the Android Boot Manager installer. This will install Android Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
     <string name="next">Next</string>
+    <string name="manual">Manual</string>
     <!-- Assistant page navigation -->
     <string name="prev">Prev</string>
     <string name="help">Help</string>

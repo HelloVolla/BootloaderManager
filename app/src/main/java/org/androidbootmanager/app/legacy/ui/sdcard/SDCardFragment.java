@@ -237,7 +237,7 @@ public class SDCardFragment extends Fragment {
                                                 (ddresolv[dd.getSelectedItemPosition()].equals("0700") ?
                                                         (" && sm format public:" + meta.major + "," + (meta.minor + meta.nid)) :
                                                         (ddresolv[dd.getSelectedItemPosition()].equals("8301") ?
-                                                                " && mkfs.ext4 " + pbdev + meta.nid :
+                                                                " && mkfs.ext2 " + pbdev + meta.nid :
                                                                 " && echo Warning: Unsure on how to format this partition."
                                                         )
                                                 )

@@ -17,10 +17,6 @@
             android:icon="@drawable/ic_sd"
             android:title="@string/menu_sd" />
         <item
-            android:id="@+id/nav_generalcfg"
-            android:icon="@drawable/ic_settings"
-            android:title="@string/menu_generalcfg" />
-        <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_about"
             android:title="@string/about" />

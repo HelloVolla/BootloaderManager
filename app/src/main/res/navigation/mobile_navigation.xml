@@ -23,12 +23,6 @@
         tools:layout="@layout/wizard_installer_finddevice" />
 
     <fragment
-        android:id="@+id/nav_generalcfg"
-        android:name="org.androidbootmanager.app.legacy.ui.generalcfg.GeneralCfgFragment"
-        android:label="@string/menu_generalcfg"
-        tools:layout="@layout/fragment_generalcfg" />
-
-    <fragment
         android:id="@+id/nav_about"
         android:name="org.androidbootmanager.app.legacy.ui.about.AboutFragment"
         tools:layout="@layout/fragment_about"

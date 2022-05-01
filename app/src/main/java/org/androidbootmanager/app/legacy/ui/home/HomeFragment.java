@@ -96,7 +96,6 @@ public class HomeFragment extends Fragment {
                     check3.set(true);
             }
             installButton.setOnClickListener((v) -> startActivity(new Intent(requireActivity(), WizardActivity.class).putExtra("StartFragment", InstallerWelcomeWizardPageFragment.class)));
-            ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_generalcfg).setEnabled(check1.get() && check2.get() && check3.get());
             ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_roms).setEnabled(check2.get() && check3.get() && sd.get());
             ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_sd).setEnabled(check2.get() && sd.get());
             if (check1.get() && check2.get() && check3.get()) {

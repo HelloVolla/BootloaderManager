@@ -22,6 +22,7 @@
     <string name="sure_title">Are you sure?</string>
     <string name="install">Install</string>
     <string name="online">Online Installer</string>
+    <string name="check">Check Requirements</string>
     <string name="download">Download</string>
     <string name="be_careful">YOU CAN LOOSE YOUR DATA! YOU CAN BRICK YOUR DEVICE! YOU CAN LOOSE YOUR IMEI! YOU CAN LOOSE YOUR MONEY! NOBODY IS RESPONSIBLE EXCEPT YOU! DO AT YOUR OWN RISK AND BE CAREFUL!</string>
     <string name="umount">Unmount Bootset</string>
@@ -130,4 +131,5 @@
     <string name="select_droidian_devtools">Select Droidian DevTools</string>
     <string name="rom_type_add_droidian">Droidian GSI with Adaption and DevTools</string>
 	<string name="menu">Menu</string>
+    <string name="internal_storage_space">Internal Storage Space</string>
 </resources>

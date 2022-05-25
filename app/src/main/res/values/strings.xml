@@ -132,4 +132,6 @@
     <string name="rom_type_add_droidian">Droidian GSI with Adaption and DevTools</string>
 	<string name="menu">Menu</string>
     <string name="internal_storage_space">Internal Storage Space</string>
+    <string name="internal_space_failed">Requires %1$d GB Free space</string>
+    <string name="partition_check_failed">Requires %1$d partitions</string>
 </resources>

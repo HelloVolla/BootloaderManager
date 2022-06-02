@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("ABM_MOUNT",String.join("",result.getErr()));
             return false;
         }
-        if (d.usesLegacyDir) {
+        /*if (d.usesLegacyDir) {
             if (!(result = Shell.su("mount --bind /data/abm/bootset/lk2nd /data/abm/bootset/db").exec()).isSuccess()) {
                 Log.e("ABM_MOUNT", String.join("", result.getOut()));
                 Log.e("ABM_MOUNT", String.join("", result.getErr()));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("ABM_MOUNT",String.join("",result.getErr()));
                 return false;
             }
-        }
+        }*/
 
          return true;
     }
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean umount(DeviceModel d) {
         Shell.Result result;
 
-        if (d.usesLegacyDir) {
+        /*if (d.usesLegacyDir) {
             if (!(result = Shell.su("umount /data/abm/bootset/db").exec()).isSuccess()) {
                 Log.e("ABM_MOUNT", String.join("", result.getOut()));
                 Log.e("ABM_MOUNT", String.join("", result.getErr()));
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("ABM_MOUNT", String.join("", result.getErr()));
                 return false;
             }
-        }
+        }*/
         if(!(result = Shell.sh("/data/data/org.androidbootmanager.app/assets/Scripts/config/umount/" + d.codename + ".sh").exec()).isSuccess()) {
             Log.e("ABM_MOUNT",String.join("",result.getOut()));
             Log.e("ABM_MOUNT",String.join("",result.getErr()));

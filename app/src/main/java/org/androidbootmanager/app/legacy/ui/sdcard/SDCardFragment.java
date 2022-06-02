@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.slider.RangeSlider;
 import com.topjohnwu.superuser.Shell;
 import com.topjohnwu.superuser.io.SuFile;
@@ -140,6 +141,12 @@ public class SDCardFragment extends Fragment {
                 size = view.findViewById(R.id.sd_size);
                 container.setOnClickListener(e -> {
                     if (meta.dumpS(id).type == SDUtils.PartitionType.FREE) {
+                        if (meta.p.size() == 0) {
+                            setupMetadata(meta);
+                            recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model))));
+                            return;
+                        }
+
                         View v = getLayoutInflater().inflate(R.layout.create_part, null);
                         final String[] ddresolv = new String[]{"0700", "8302", "8301", "8305", "8300"};
                         final EditText start = v.findViewById(R.id.create_part_start);
@@ -292,7 +299,12 @@ public class SDCardFragment extends Fragment {
                                     ).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
                                             .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                             .setMessage(String.join("\n", out) + "\n" + String.join("", err))
-                                            .setPositiveButton(R.string.ok, (g, s) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))
+                                            .setPositiveButton(R.string.ok, (g, s) -> {
+                                                SDUtils.SDPartitionMeta newMeta = generateMeta(DeviceList.getModel(model));
+                                                boolean showRoms = (newMeta.p.size() > 0 && meta.p.get(0).code.equals("8301"));
+                                                ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_roms).setEnabled(showRoms);
+                                                recyclerView.setAdapter(new SDRecyclerViewAdapter(newMeta));
+                                            })
                                             .setCancelable(false)
                                             .show())));
                                 }))
@@ -339,6 +351,38 @@ public class SDCardFragment extends Fragment {
         }
     }
 
+    private void setupMetadata(SDUtils.SDPartitionMeta meta) {
+        long metadataEnd = ((meta.sectors - 2048) / 41) + 2048;
+        ArrayList<String> out = new ArrayList<>();
+        ArrayList<String> err = new ArrayList<>();
+        new AlertDialog.Builder(requireActivity())
+                .setMessage(R.string.missing_meta_summery)
+                .setTitle(R.string.missing_meta)
+                .setNegativeButton(R.string.cancel, (d, p) -> d.dismiss())
+                .setPositiveButton(R.string.create, (d, p) -> MiscUtils.w(requireContext(), R.string.creating_prog, () -> Shell.sh(
+                        SDUtils.umsd(meta) + " && sgdisk " + DeviceList.getModel(model).bdev +
+                                " --new " + meta.nid + ":2048" + ":" + metadataEnd +
+                                " --typecode " + meta.nid + ":8301" +
+                                " --change-name " + meta.nid + ":'abm_settings'" +
+                                " && /data/data/org.androidbootmanager.app/assets/Scripts/config/rereadpt.sh " +
+                                DeviceList.getModel(model).pbdev + meta.nid +
+                                " && mkfs.ext2 " + DeviceList.getModel(model).pbdev + meta.nid +
+                                " && /data/data/org.androidbootmanager.app/assets/Scripts/install/" +
+                                DeviceList.getModel(model).codename + ".sh"
+
+                ).to(out, err).submit(MiscUtils.w2((r) -> {
+                    ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_roms).setEnabled(r.isSuccess());
+
+                    new AlertDialog.Builder(requireContext())
+                            .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
+                            .setMessage(String.join("\n", out) + "\n" + String.join("\n", err))
+                            .setPositiveButton(R.string.ok, (g, l) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))
+                            .setCancelable(false)
+                            .show();
+                }))))
+                .show();
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         model = new ViewModelProvider(requireActivity()).get(InstalledViewModel.class);
@@ -382,6 +426,22 @@ public class SDCardFragment extends Fragment {
                 .show();
         } else
             recyclerView.setAdapter(new SDRecyclerViewAdapter(meta.get()));
+
+        if (meta.get() != null) {
+            if (meta.get().p.size() == 0) {
+                setupMetadata(meta.get());
+
+                meta.set(generateMeta(DeviceList.getModel(model)));
+                recyclerView.setAdapter(new SDRecyclerViewAdapter(meta.get()));
+            } else if (!meta.get().p.get(0).code.equals("8301")) {
+                new AlertDialog.Builder(requireActivity())
+                        .setNegativeButton("Close", (d, p) -> requireActivity().finish())
+                        .setCancelable(false)
+                        .setTitle(R.string.fatal)
+                        .setMessage(R.string.missing_meta_error)
+                        .show();
+            }
+        }
         return root;
     }
 

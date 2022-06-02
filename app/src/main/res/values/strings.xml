@@ -134,4 +134,7 @@
     <string name="internal_storage_space">Internal Storage Space</string>
     <string name="internal_space_failed">Requires %1$d GB Free space</string>
     <string name="partition_check_failed">Requires %1$d partitions</string>
+    <string name="missing_meta">Missing Metadata partition</string>
+    <string name="missing_meta_summery">Metadata partition is missing on your SD card. Create metadata on first partition?</string>
+    <string name="missing_meta_error">Metadata partition is missing on your SD card. Please make sure you have backup of your data, Remove all partitions and create metadata on first partition</string>
 </resources>

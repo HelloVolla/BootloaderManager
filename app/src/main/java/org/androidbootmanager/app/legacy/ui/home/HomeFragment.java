@@ -90,10 +90,10 @@ public class HomeFragment extends Fragment {
 
             if (sd.get()) {
                 AtomicReference<SDUtils.SDPartitionMeta> meta = new AtomicReference<>(generateMeta(DeviceList.getModel(model)));
-                if (!meta.get().p.get(0).code.equals("8301"))
-                    Toast.makeText(requireActivity(), "Bad metadata", Toast.LENGTH_LONG).show();
-                else
+                if (meta.get() != null && meta.get().p.size() > 0 && meta.get().p.get(0).code.equals("8301"))
                     check3.set(true);
+                else
+                    Toast.makeText(requireActivity(), "Bad metadata", Toast.LENGTH_LONG).show();
             }
             installButton.setOnClickListener((v) -> startActivity(new Intent(requireActivity(), WizardActivity.class).putExtra("StartFragment", InstallerWelcomeWizardPageFragment.class)));
             ((NavigationView) requireActivity().findViewById(R.id.nav_view)).getMenu().findItem(R.id.nav_roms).setEnabled(check2.get() && check3.get() && sd.get());

@@ -137,4 +137,8 @@
     <string name="missing_meta">Missing Metadata partition</string>
     <string name="missing_meta_summery">Metadata partition is missing on your SD card. Create metadata on first partition?</string>
     <string name="missing_meta_error">Metadata partition is missing on your SD card. Please make sure you have backup of your data, Remove all partitions and create metadata on first partition</string>
+    <string name="supported">Supported Device</string>
+    <string name="has_sdcard">SD Card available</string>
+    <string name="has_meta">SD Card initialized</string>
+    <string name="setup">Setup</string>
 </resources>

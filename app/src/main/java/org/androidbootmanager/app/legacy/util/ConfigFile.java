@@ -79,6 +79,11 @@ public class ConfigFile {
                 throw new ActionAbortedCleanlyError(e);
             }
         }
+        try {
+            i.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return importFromString(new String(s.toByteArray()));
     }
 

@@ -233,7 +233,7 @@ public class SDCardFragment extends Fragment {
                                                 " --new " + meta.nid + ":" + start.getText() + ":" + end.getText() +
                                                 " --typecode " + meta.nid + ":" + ddresolv[dd.getSelectedItemPosition()] +
                                                 " --change-name " + meta.nid + ":'" + label.getText().toString().replace("'", "") +
-                                                "' && sleep 1 && ls " + pbdev + meta.nid +
+                                                "' && /data/data/org.androidbootmanager.app/assets/Scripts/config/rereadpt.sh " + pbdev + meta.nid +
                                                 (ddresolv[dd.getSelectedItemPosition()].equals("0700") ?
                                                         (" && sm format public:" + meta.major + "," + (meta.minor + meta.nid)) :
                                                         (ddresolv[dd.getSelectedItemPosition()].equals("8301") ?
@@ -286,7 +286,10 @@ public class SDCardFragment extends Fragment {
                         final AlertDialog[] dialog = {new AlertDialog.Builder(requireContext())
                                 .setCustomTitle(t)
                                 .setNegativeButton(R.string.delete, (w, p1) -> MiscUtils.sure(requireContext(), w, getString(R.string.delete_msg, meta.dumpS(id).id, SDUtils.codes.get(meta.dumpS(id).code), meta.dumpS(id).name), (d, p) -> {
-                                    MiscUtils.w(requireContext(), R.string.delete_prog, () -> Shell.sh(SDUtils.umsd(meta) + " && sgdisk " + bdev + " --delete " + meta.dumpS(id).id).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
+                                    MiscUtils.w(requireContext(), R.string.delete_prog, () -> Shell.sh(SDUtils.umsd(meta) +
+                                            " && sgdisk " + bdev + " --delete " + meta.dumpS(id).id +
+                                            " && /data/data/org.androidbootmanager.app/assets/Scripts/config/rereadpt.sh"
+                                    ).to(out, err).submit(MiscUtils.w2((r) -> new AlertDialog.Builder(requireContext())
                                             .setTitle(r.isSuccess() ? R.string.successful : R.string.failed)
                                             .setMessage(String.join("\n", out) + "\n" + String.join("", err) + (String.join("", out).contains("old") ? "IMPORTANT: Please reboot!" : ""))
                                             .setPositiveButton(R.string.ok, (g, s) -> recyclerView.setAdapter(new SDRecyclerViewAdapter(generateMeta(DeviceList.getModel(model)))))

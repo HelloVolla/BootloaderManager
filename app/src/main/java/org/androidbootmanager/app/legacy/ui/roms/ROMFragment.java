@@ -26,6 +26,8 @@ import com.topjohnwu.superuser.Shell;
 import com.topjohnwu.superuser.io.SuFile;
 
 import org.androidbootmanager.app.R;
+import org.androidbootmanager.app.legacy.devices.DeviceList;
+import org.androidbootmanager.app.legacy.ui.activities.MainActivity;
 import org.androidbootmanager.app.legacy.ui.addrom.AddROMWelcomeWizardPageFragment;
 import org.androidbootmanager.app.legacy.ui.addrom.UpROMWelcomeWizardPageFragment;
 import org.androidbootmanager.app.legacy.ui.home.InstalledViewModel;
@@ -212,9 +214,13 @@ public class ROMFragment extends Fragment {
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(requireContext());
         recyclerView.setLayoutManager(recyclerLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), recyclerLayoutManager.getOrientation()));
-        updateEntries();
-        adapter = new ROMRecyclerViewAdapter(entries);
-        recyclerView.setAdapter(adapter);
+        if (!((MainActivity) requireActivity()).mount(DeviceList.getModel(model)))
+            Toast.makeText(requireActivity(), R.string.bootset_fail, Toast.LENGTH_LONG).show();
+        else {
+            updateEntries();
+            adapter = new ROMRecyclerViewAdapter(entries);
+            recyclerView.setAdapter(adapter);
+        }
         return root;
     }
 
@@ -231,4 +237,10 @@ public class ROMFragment extends Fragment {
         adapter = new ROMRecyclerViewAdapter(entries);
         recyclerView.setAdapter(adapter);
     }
+
+    public void onDestroyView() {
+        super.onDestroyView();
+        ((MainActivity) requireActivity()).umount(DeviceList.getModel(model));
+    }
+
 }

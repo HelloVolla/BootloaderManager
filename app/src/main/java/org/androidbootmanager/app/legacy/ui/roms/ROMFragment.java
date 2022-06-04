@@ -156,7 +156,7 @@ public class ROMFragment extends Fragment {
                     dialog.findViewById(R.id.editentrySysPart).setEnabled(false);
                     AlertDialog d = new AlertDialog.Builder(requireContext())
                             .setCancelable(true)
-                            .setNeutralButton(R.string.kernel_update, (p1, p2) -> {
+                            /*.setNeutralButton(R.string.kernel_update, (p1, p2) -> {
                                 if ((e.config.get("xsystem") == null ? "" : e.config.get("xsystem")).equals("real") || (e.config.get("xdata") == null ? "" : e.config.get("xdata")).equals("real")) {
                                     new AlertDialog.Builder(requireContext())
                                             .setTitle(R.string.failed)
@@ -168,7 +168,7 @@ public class ROMFragment extends Fragment {
                                 }
                                 current = e;
                                 startActivity(new Intent(requireActivity(), WizardActivity.class).putExtra("codename",model.getCodename().getValue()).putExtra("StartFragment", UpROMWelcomeWizardPageFragment.class));
-                            })
+                            })*/
                             .setNegativeButton(R.string.delete, (p1, p2) -> MiscUtils.sure(requireContext(), p1, getString(R.string.delete_msg_2, e.config.get("title")), (p112, p212) -> {
                                 if (e.config.get("xsystem") != null && e.config.get("xdata") != null)
                                     if (e.config.get("xsystem").equals("real") || e.config.get("xdata").equals("real")) {

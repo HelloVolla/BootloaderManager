@@ -2,6 +2,7 @@ package org.androidbootmanager.app.legacy.util;
 
 import android.annotation.SuppressLint;
 
+import com.topjohnwu.superuser.Shell;
 import com.topjohnwu.superuser.io.SuFile;
 import com.topjohnwu.superuser.io.SuFileInputStream;
 
@@ -49,7 +50,7 @@ public class ConfigFile {
     @SuppressLint("SdCardPath")
     public void exportToPrivFile(String tempfilename, String fullPath) {
         exportToFile(new File("/data/data/org.androidbootmanager.app/files/" + tempfilename));
-        SuFile.open("/data/data/org.androidbootmanager.app/files/" + tempfilename).renameTo(new File(fullPath));
+        Shell.sh("mv " + "\"/data/data/org.androidbootmanager.app/files/" + tempfilename + "\" \"" + fullPath + "\"").exec();
     }
 
     public static ConfigFile importFromString(String s) {

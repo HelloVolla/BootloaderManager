@@ -1,8 +1,8 @@
 [submodule "app/src/main/assets/Scripts"]
 	path = app/src/main/assets/Scripts
-	url = https://github.com/Android-Boot-Manager/Scripts
+	url = git@git.volla.tech:VollaOS-AOSP/bootloadermanager-scripts.git
 	branch = master
 [submodule "app/src/main/assets/Toolkit"]
 	path = app/src/main/assets/Toolkit
-	url = https://github.com/Android-Boot-Manager/Toolkit
+	url = git@git.volla.tech:VollaOS-AOSP/bootloadermanager-toolkit.git
 	branch = master

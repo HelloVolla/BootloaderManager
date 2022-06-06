@@ -33,6 +33,7 @@ public class ROMsList {
             r.parts = new ArrayList<>();
             r.strings = new HashMap<>();
             r.flashes = new HashMap<>();
+            r.updates = new ArrayList<>();
             ArrayList<String> a = new ArrayList<>(Arrays.asList(Objects.requireNonNull(SuFile.open("/data/abm/bootset/db/entries/").list())));
             a.removeIf((c) -> !c.contains("rom"));
             a.sort((c, d) -> Integer.compare(Integer.parseInt(c.replace("rom","").replace(".conf","")), Integer.parseInt(d.replace("rom","").replace(".conf",""))));

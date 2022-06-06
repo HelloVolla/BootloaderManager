@@ -1,7 +1,11 @@
 package org.androidbootmanager.app.legacy.roms;
 
+import org.androidbootmanager.app.legacy.ui.update.UpdateBase;
+import org.androidbootmanager.app.legacy.ui.update.UpdateBaseInfo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ROM {
@@ -14,4 +18,5 @@ public class ROM {
     public HashMap<String, String[]> flashes;
     public CmdlineGenerator gen;
     public ROMType type;
+    public List<UpdateBaseInfo> updates;
 }

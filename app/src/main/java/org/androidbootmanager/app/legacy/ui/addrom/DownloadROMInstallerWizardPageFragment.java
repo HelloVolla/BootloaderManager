@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.androidbootmanager.app.R;
+import org.androidbootmanager.app.legacy.ui.update.UpdateBaseInfo;
 import org.androidbootmanager.app.legacy.ui.wizard.WizardViewModel;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -36,6 +38,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
@@ -147,7 +150,7 @@ public class DownloadROMInstallerWizardPageFragment extends Fragment {
 
                 int fileLength = connection.getContentLength();
 
-                publishProgress(new Progress("Downloading images archive, size: " + FileUtils.byteCountToDisplaySize(fileLength)));
+                publishProgress(new Progress("Downloading images archive..."));
 
                 input = connection.getInputStream();
                 output = new FileOutputStream("/data/data/org.androidbootmanager.app/cache/online/rom.zip");
@@ -311,12 +314,18 @@ public class DownloadROMInstallerWizardPageFragment extends Fragment {
         progressBar.setIndeterminate(true);
         progressBar.setMax(100);
         final DownloadTask downloadTask = new DownloadTask(requireContext());
-        //downloadTask.execute("http://88.99.101.25:8080/job/mimameid-ubuntutouch/ws/stable-images.zip");
-        downloadTask.execute("http://192.168.90.185/stable-images.zip");
+        downloadTask.execute(imodel.getROM().getValue().updates.get(0).getDownloadUrl());
         model.setNegativeAction(() -> {
             downloadTask.cancel(true);
             requireActivity().finish();
         });
+    }
+
+    private String getDate(long time) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(time * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
     }
 
     protected WizardViewModel model;
@@ -345,6 +354,21 @@ public class DownloadROMInstallerWizardPageFragment extends Fragment {
             progressBar.setVisibility(View.VISIBLE);
             prepareRomFiles();
         });
+
+        if (!imodel.getROM().getValue().updates.isEmpty()) {
+            UpdateBaseInfo update = imodel.getROM().getValue().updates.get(0);
+            log.append("Found " + update.getType() + " Rom:\n");
+            log.append("Date " + getDate(update.getTimestamp()) + "\n");
+            log.append("Version " + update.getVersion() + "\n");
+            log.append("Size " + FileUtils.byteCountToDisplaySize(update.getFileSize()) + "\n");
+            //log.append("Hash " + update.getDownloadId() + "\n");
+        } else {
+            log.append("Failed, to get online rom\n");
+            model.setPositiveText(getString(R.string.manual));
+            model.setPositiveFragment(DeviceROMInstallerWizardPageFragment.class);
+            downloadBtn.setEnabled(false);
+        }
+
         return root;
     }
 

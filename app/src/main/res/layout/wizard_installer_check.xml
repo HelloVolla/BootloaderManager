@@ -25,19 +25,31 @@
         android:src="@drawable/ic_no"
         tools:ignore="ContentDescription"
         android:layout_marginVertical="70dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wizard_check_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/wizard_check_title" />
+
+    <ProgressBar
+        android:id="@+id/check_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="197dp"
+        android:layout_height="197dp"
+        android:layout_marginVertical="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wizard_check_title" />
 
     <LinearLayout
         android:id="@+id/home_installedWorking_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="197dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/check_logo">
+        app:layout_constraintTop_toBottomOf="@+id/wizard_check_title">
 
         <LinearLayout
             android:id="@+id/check_check_keys"
@@ -66,6 +78,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

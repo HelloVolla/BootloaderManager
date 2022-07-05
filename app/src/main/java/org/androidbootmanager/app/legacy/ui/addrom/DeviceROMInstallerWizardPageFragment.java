@@ -96,10 +96,10 @@ public class DeviceROMInstallerWizardPageFragment extends Fragment {
             }
             txt.setText(imodel.getROM().getValue().flashes.get(key)[1]);
             dd.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_spinner_dropdown_item, a.values().toArray()));
-            ok.setOnClickListener((v) -> {
+
+            if (!imodel.getParts().getValue().isEmpty()) {
                 dd.setEnabled(false);
-                Integer selectedPart = (Integer) a.keySet().toArray()[dd.getSelectedItemPosition()];
-                pdump = meta.ppath + selectedPart;
+                pdump = meta.ppath + imodel.getParts().getValue().get(0);
 
                 File imageFile = new File("/data/data/org.androidbootmanager.app/cache/" + key);
                 if (imageFile.exists()) {
@@ -116,8 +116,30 @@ public class DeviceROMInstallerWizardPageFragment extends Fragment {
                     });
                 }
                 imodel.getROM().getValue().flashes.remove(key);
-                imodel.addPart(selectedPart);
-            });
+            } else {
+                ok.setOnClickListener((v) -> {
+                    dd.setEnabled(false);
+                    Integer selectedPart = (Integer) a.keySet().toArray()[dd.getSelectedItemPosition()];
+                    pdump = meta.ppath + selectedPart;
+
+                    File imageFile = new File("/data/data/org.androidbootmanager.app/cache/" + key);
+                    if (imageFile.exists()) {
+                        txt.setText(R.string.copy_file);
+                        ok.setVisibility(View.INVISIBLE);
+                        flashPartition(key);
+                    } else {
+                        txt.setText(imodel.getROM().getValue().flashes.get(key)[0]);
+                        ok.setOnClickListener((b) -> {
+                            Intent intent = new Intent();
+                            intent.setType("*/*");
+                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            startActivityForResult(intent, 5299);
+                        });
+                    }
+                    imodel.getROM().getValue().flashes.remove(key);
+                    imodel.addPart(selectedPart);
+                });
+            }
         } else if (imodel.getROM().getValue().parts.size() > 0) {
             root = inflater.inflate(R.layout.wizard_addrom_getpart, container, false);
             ok = root.findViewById(R.id.wizard_addrom_getpart_btn);

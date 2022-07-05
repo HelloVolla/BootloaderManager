@@ -28,7 +28,7 @@ public class UpROMWelcomeWizardPageFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         model = new ViewModelProvider(requireActivity()).get(WizardViewModel.class);
         imodel = new ViewModelProvider(requireActivity()).get(AddROMViewModel.class);
-        model.setPositiveFragment(DeviceROMInstallerWizardPageFragment.class);
+        model.setPositiveFragment(AddROMCheckWizardPageFragment.class);
         model.setNegativeFragment(null);
         model.setPositiveAction(null);
         model.setNegativeAction(() -> requireActivity().finish());
@@ -49,7 +49,6 @@ public class UpROMWelcomeWizardPageFragment extends Fragment {
         imodel.getName().add(e.config.get("title"));
         imodel.getName().add(e.file.replace("/data/abm/bootset/lk2nd/entries/","").replace(".conf",""));
         Objects.requireNonNull(imodel.getROM().getValue()).parts.clear();
-        Objects.requireNonNull(imodel.getROM().getValue()).flashes.clear();
         Objects.requireNonNull(imodel.getROM().getValue()).strings.clear();
         Objects.requireNonNull(imodel.getROM().getValue()).fullPath = "FORMATDATA=false " + imodel.getROM().getValue().fullPath;
         final View root = inflater.inflate(R.layout.wizard_installer_welcome, container, false);

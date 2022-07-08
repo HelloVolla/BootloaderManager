@@ -435,7 +435,7 @@ public class SDCardFragment extends Fragment {
                 recyclerView.setAdapter(new SDRecyclerViewAdapter(meta.get()));
             } else if (!meta.get().p.get(0).code.equals("8301")) {
                 new AlertDialog.Builder(requireActivity())
-                        .setNegativeButton("Close", (d, p) -> requireActivity().finish())
+                        .setNegativeButton("Close", (d, p) -> d.dismiss())
                         .setCancelable(false)
                         .setTitle(R.string.fatal)
                         .setMessage(R.string.missing_meta_error)

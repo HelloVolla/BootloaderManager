@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
-    <string name="app_name">Android Boot Manager</string>
+    <string name="app_name">Volla Boot Manager</string>
     <string name="app_summary">MultiROM bootloader Manager</string>
     <string name="fatal">FATAL ERROR</string>
     <string name="about_txt_1">Founded by Luka Panio &amp; nift4</string>
@@ -9,8 +9,8 @@
     <string name="about_txt_3">    DroidBoot development: Luka Panio</string>
     <string name="about_txt_4">    Thanks to Volla &amp; F(x)tec for developer devices</string>
     <string name="cp_err_msg">Failed to extract some data. Did you install the app on a SD card? Pressing OK will take you to the app, do not do anything without investigating first!</string>
-    <string name="wrong_device_msg">Android Boot Manager is not available for this device (%1$s).</string>
-    <string name="device_msg">Android Boot Manager is available for this device (%1$s).</string>
+    <string name="wrong_device_msg">Volla Boot Manager is not available for this device (%1$s).</string>
+    <string name="device_msg">Volla Boot Manager is available for this device (%1$s).</string>
     <string name="device_btn">Not your device?</string>
     <string name="bsp_msg">Your device uses an BSP codename (%1$s). That means we are not able to identify your device and you need to select yours.</string>
     <string name="ok">OK</string>
@@ -84,9 +84,9 @@
     <string name="android">Android</string>
     <string name="about">About</string>
     <string name="welcome">Welcome!</string>
-    <string name="wizard_deviceinstaller_text">Ready! Please follow the next steps for installing Android Boot Manager. If you redecided, you can click cancel. Nothing was changed until now.</string>
+    <string name="wizard_deviceinstaller_text">Ready! Please follow the next steps for installing Volla Boot Manager. If you redecided, you can click cancel. Nothing was changed until now.</string>
     <string name="wizard_devicerominstaller_text">Ready! Please follow the next steps for installing your ROM. If you redecided, you can click cancel. Nothing was changed until now except that your SD card got flashed.</string>
-    <string name="installerWelcome">Welcome to the Android Boot Manager installer. This will install Android Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
+    <string name="installerWelcome">Welcome to the Volla Boot Manager installer. This will install Volla Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
     <string name="next">Next</string>
     <string name="manual">Manual</string>
     <!-- Assistant page navigation -->

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Менеджер завантаження Android</string>
+    <string name="app_name">Менеджер завантаження Volla</string>
     <string name="fatal">КРИТИЧНА ПОМИЛКА</string>
     <string name="about_txt_1">Створено Лукою Паньо &amp; і nift4</string>
     <string name="about_txt_2">    Розробка програми: nift4</string>
     <string name="about_txt_3">    Розробник бутлоадера: Лука Паніо</string>
     <string name="about_txt_4">    Дякуємо Volla &amp; F(x)tec за пристроїі для розробників</string>
     <string name="cp_err_msg">Не вдалося розархівувати деякі дані. Ви встановили додаток на SD-карту? Натискання \"ОК\" перенаправить вас до застосунку, нічого не робити без попереднього виправлення проблеми!</string>
-    <string name="wrong_device_msg">Android Boot Manager не доступний для цього приладу (%1$s).</string>
-    <string name="device_msg">Android Boot Manager не доступний для цього приладу (%1$s).</string>
+    <string name="wrong_device_msg">Volla Boot Manager не доступний для цього приладу (%1$s).</string>
+    <string name="device_msg">Volla Boot Manager не доступний для цього приладу (%1$s).</string>
     <string name="device_btn">Не той пристрій?</string>
     <string name="bsp_msg">Ваш пристрій використовує ім\'я BSP кодові (%1$s). Це означає, що ми не можемо ідентифікувати пристрій і вам потрібно вибрати його.</string>
     <string name="ok">OK</string>
@@ -75,9 +75,9 @@
     <string name="android">Андроїд</string>
     <string name="about">Про програму</string>
     <string name="welcome">Ласкаво просимо!</string>
-    <string name="wizard_deviceinstaller_text">Готово! Будь ласка, виконайте наступні кроки до встановлення Android Boot Manager. Якщо ви передумали, натисніть кнопку \"Скасувати\". До цього часу нічого не змінилося.</string>
+    <string name="wizard_deviceinstaller_text">Готово! Будь ласка, виконайте наступні кроки до встановлення Volla Boot Manager. Якщо ви передумали, натисніть кнопку \"Скасувати\". До цього часу нічого не змінилося.</string>
     <string name="wizard_devicerominstaller_text">Ready! Please follow the next steps for installing your ROM. If you redecided, you can click cancel. Nothing was changed until now except that your SD card got flashed.</string>
-    <string name="installerWelcome">Welcome to the Android Boot Manager installer. This will install Android Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
+    <string name="installerWelcome">Welcome to the Volla Boot Manager installer. This will install Volla Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
     <string name="next">Наступний</string>
     <!-- Assistant page navigation -->
     <string name="prev">Попередній</string>

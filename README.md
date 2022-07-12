@@ -1,12 +1,12 @@
 <h1 align="center">
   <a href="https://github.com/Android-Boot-Manager/App">
-    <img alt="Android Boot Manager logo" src="https://github.com/Android-Boot-Manager/App/raw/master/web_hi_res_512.png" width="400">
+    <img alt="Volla Boot Manager logo" src="https://github.com/Android-Boot-Manager/App/raw/master/web_hi_res_512.png" width="400">
   </a>
-  <br>Android Boot Manager <br>
+  <br>Volla Boot Manager <br>
 </h1>
 
 <h4 align="center">
-  Multiboot for Android - the other way
+  Multiboot for Volla
 </h4>
 
 <p align="center">

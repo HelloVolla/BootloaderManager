@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Android Önyükleme Yöneticisi</string>
+    <string name="app_name">Volla Önyükleme Yöneticisi</string>
     <string name="fatal">KRİTİK HATA</string>
     <string name="about_txt_1">Luka Panio &amp; nift4 tarafından kurulmuştur</string>
     <string name="about_txt_2">    Uygulama Geliştiricisi: nift4</string>
@@ -8,7 +8,7 @@
     <string name="about_txt_4">    Geliştirici cihazları için Volla &amp; F(x)tec teşekkür ederiz</string>
     <string name="cp_err_msg">Bazı verileri çıkarmada başarısız olundu. Uygulamayı SD Karta mı yüklediniz? Tamam\'a basmak sizi uygulamaya yönderirir, ancak sorunu çözmeden bir şey yapmayın!</string>
     <string name="wrong_device_msg">Android Önyükleme Yöneticisi bu cihaz için kullanılabilir değil (%1$s).</string>
-    <string name="device_msg">Android Boot Manager bu cihaz için kullanılabilir (%1$s).</string>
+    <string name="device_msg">Volla Boot Manager bu cihaz için kullanılabilir (%1$s).</string>
     <string name="device_btn">Cihazınız bu değil mi?</string>
     <string name="bsp_msg">Cihazınız BSP kod adını kullanmaktadır (%1$s). Bundan dolayı cihazınızı tanımakta güçlük çekiyoruz lütfen kendi cihazınızı kendiniz seçiniz.</string>
     <string name="ok">Tamam</string>
@@ -75,9 +75,9 @@
     <string name="android">Android</string>
     <string name="about">Hakkında</string>
     <string name="welcome">Hoşgeldiniz!</string>
-    <string name="wizard_deviceinstaller_text">Hazır! Android Boot Manager yüklemek için adımları takip edin. Eğer fikrinizi değiştirirseniz iptale basabilirsiniz. Şimdiye kadar hiç bir şey değiştirilmedi.</string>
+    <string name="wizard_deviceinstaller_text">Hazır! Volla Boot Manager yüklemek için adımları takip edin. Eğer fikrinizi değiştirirseniz iptale basabilirsiniz. Şimdiye kadar hiç bir şey değiştirilmedi.</string>
     <string name="wizard_devicerominstaller_text">Ready! Please follow the next steps for installing your ROM. If you redecided, you can click cancel. Nothing was changed until now except that your SD card got flashed.</string>
-    <string name="installerWelcome">Welcome to the Android Boot Manager installer. This will install Android Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
+    <string name="installerWelcome">Welcome to the Volla Boot Manager installer. This will install Volla Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
     <string name="next">İleri</string>
     <!-- Assistant page navigation -->
     <string name="prev">Geri</string>

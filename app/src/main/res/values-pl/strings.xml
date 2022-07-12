@@ -8,7 +8,7 @@
     <string name="about_txt_4">    Podziękowania dla Volla &amp; F(x)tec za urządzenia deweloperskie</string>
     <string name="cp_err_msg">Wypakowywanie niektórych danych nie powiodło się. Czy zainstalowałeś aplikację na karcie SD? Naciśnięcie OK zabierze Cię do aplikacji, nie rób nic bez uprzedniego badania!</string>
     <string name="wrong_device_msg">Menedżer uruchamiania Androida nie jest dostępny dla tego urządzenia (%1$s).</string>
-    <string name="device_msg">Android Boot Manager jest dostępny dla tego urządzenia (%1$s).</string>
+    <string name="device_msg">Volla Boot Manager jest dostępny dla tego urządzenia (%1$s).</string>
     <string name="device_btn">Nie twoje urządzenie?</string>
     <string name="bsp_msg">Twoje urządzenie używa nazwy kodowej BSP (%1$s). Oznacza to, że nie jesteśmy w stanie zidentyfikować Twojego urządzenia i musisz wybrać swoje.</string>
     <string name="ok">OK</string>
@@ -75,9 +75,9 @@
     <string name="android">Android</string>
     <string name="about">About</string>
     <string name="welcome">Welcome!</string>
-    <string name="wizard_deviceinstaller_text">Ready! Please follow the next steps for installing Android Boot Manager. If you redecided, you can click cancel. Nothing was changed until now.</string>
+    <string name="wizard_deviceinstaller_text">Ready! Please follow the next steps for installing Volla Boot Manager. If you redecided, you can click cancel. Nothing was changed until now.</string>
     <string name="wizard_devicerominstaller_text">Ready! Please follow the next steps for installing your ROM. If you redecided, you can click cancel. Nothing was changed until now except that your SD card got flashed.</string>
-    <string name="installerWelcome">Welcome to the Android Boot Manager installer. This will install Android Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
+    <string name="installerWelcome">Welcome to the Volla Boot Manager installer. This will install Volla Boot Manager on your device. Not easily undoable modifications are being done, please do not install without knowledge about it. Keep the prerequisites in mind - you may need to format stuff manually! Disclaimer follows:</string>
     <string name="next">Next</string>
     <!-- Assistant page navigation -->
     <string name="prev">Prev</string>

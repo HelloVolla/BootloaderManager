@@ -6,7 +6,7 @@ android {
     compileSdkVersion 32
 
 	defaultConfig {
-        applicationId "org.androidbootmanager.app"
+        applicationId "com.volla.bootmanager"
         minSdkVersion 26
         // we're not going to google play
         //noinspection ExpiredTargetSdkVersion,OldTargetApi

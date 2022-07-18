@@ -9,9 +9,9 @@
         <item name="android:statusBarColor">@color/colorAccent</item>
     </style>
 
-    <color name="colorPrimary">#FF3615</color>
-    <color name="colorSecondary">#FF3615</color>
-    <color name="colorAccent" tools:ignore="UnusedResources">#FF3615</color>
+    <color name="colorPrimary">#FE9200</color>
+    <color name="colorSecondary">#FE9200</color>
+    <color name="colorAccent" tools:ignore="UnusedResources">#FE9F11</color>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

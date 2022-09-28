@@ -112,8 +112,8 @@
     <string name="data">Data</string>
     <string name="system">System</string>
     <string name="update_real_rom">You cannot update your real ROM via ABM!</string>
-    <string name="kernel_update">Kernel Update</string>
-    <string name="kernel_update_msg">You are about to update the kernel/boot image of the selected ROM and regenerate it\'s config.</string>
+    <string name="kernel_update">Обновление системы</string>
+    <string name="kernel_update_msg">Вы собираетесь обновить систему выбранного ПЗУ и перегенерировать конфигурацию it.</string>
     <string name="select_part">Please select an unused partition on your SD card configured with the following type: %1$s. Please make sure it really is the correct one, you can cancel and label it if unsure. If you didn\'t create one yet, do that first.</string>
     <!-- How an partition is used -->
     <string name="usage">Usage</string>

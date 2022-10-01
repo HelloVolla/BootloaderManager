@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<recursos xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="nombre_de_la_aplicación">Administrador de arranque deolla</string>
-    <string name="fatal">Error significativo</strong>.
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="fatal">Error significativo</string>.
     <string name="about_txt_1">Fundada por Luka Panio &amp; nift4</string>
     <string name="about_txt_2"> Desarrollo de aplicaciones: nift4</string>
     <string name="about_txt_3"> Desarrollo de DroidBoot: Luka Panio</string>
     <string name="about_txt_4"> Muchas gracias a Volla &amp; F(x)tec por los dispositivos de desarrollo</string>.
-    <string name="cp_err_msg">Error al extraer los datos. ¿Has instalado la aplicación en una tarjeta SD? Al pulsar OK se accede a la aplicación, ¡no hagas nada sin investigar el error primero!</strong>.
+    <string name="cp_err_msg">Error al extraer los datos. ¿Has instalado la aplicación en una tarjeta SD? Al pulsar OK se accede a la aplicación, ¡no hagas nada sin investigar el error primero!</string>.
     <string name="wrong_device_msg">La gestión de inicio de Android no está disponible para este dispositivo (%1$s).</string>
     <string name="device_msg">El gestor de arranqueolla está disponible para este dispositivo (%1$s).</string>
     <string name="device_btn">¿No es tu dispositivo?</string>
-    <string name="bsp_msg">Su dispositivo utiliza un nombre de código BSP (%1$s). Esto significa que no podemos identificar su dispositivo y debe seleccionarlo.</strong>.
+    <string name="bsp_msg">Su dispositivo utiliza un nombre de código BSP (%1$s). Esto significa que no podemos identificar su dispositivo y debe seleccionarlo.</string>.
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>.
-    <string name="bootset_fail">¡Atención, no se ha podido incluir el bootset! Por favor, comprueba los registros y no hagas nada!</strong>
-    <string name="select_droidboot_msg">Ahora se te pedirá el archivo DroidBoot. Asegúrate de que es el correcto para tu dispositivo!</strong>
+    <string name="bootset_fail">¡Atención, no se ha podido incluir el bootset! Por favor, comprueba los registros y no hagas nada!</string>
+    <string name="select_droidboot_msg">Ahora se te pedirá el archivo DroidBoot. Asegúrate de que es el correcto para tu dispositivo!</string>
     <string name="select_droidboot_ok">DroidBoot está seleccionado.</string>
-    <string name="select_droidboot_unzip">Esto parece un archivo zip. Tienes que extraer lk.img!</strong>
+    <string name="select_droidboot_unzip">Esto parece un archivo zip. Tienes que extraer lk.img!</string>
     <string name="select_droidboot_invalid">¡Esto no parece un DroidBoot!</string>
-    <string name="sure_title">¿Estás seguro?</strong>
+    <string name="sure_title">¿Estás seguro?</string>
     <string name="install">Instalar</string>
-    <string name="be_careful">¡Puedes perder tus datos! ¡PUEDES DESTRUIR TU DISPOSITIVO! ¡PUEDES PERDER TU IMEI! ¡INCLUSO PUEDES PERDER DINERO! ¡NADIE ES RESPONSABLE MÁS QUE TÚ! ¡UTILÍCELO BAJO SU PROPIO RIESGO! CUIDADO! </strong>
+    <string name="be_careful">¡Puedes perder tus datos! ¡PUEDES DESTRUIR TU DISPOSITIVO! ¡PUEDES PERDER TU IMEI! ¡INCLUSO PUEDES PERDER DINERO! ¡NADIE ES RESPONSABLE MÁS QUE TÚ! ¡UTILÍCELO BAJO SU PROPIO RIESGO! CUIDADO! </string>
     <string name="umount">Desmontar conjunto de botas</string>.
-    <string name="timeout">tiempo de espera</strong>
+    <string name="timeout">tiempo de espera</string>
     <string name="default_entry">entrada por defecto</string>
     <string name="save">Guardar</string>
     <string name="edit_entry">Editar entrada</string>
-    <string name="title">nombre</strong>
-    <string name="kernel">Núcleo</strong>
+    <string name="title">nombre</string>
+    <string name="kernel">Núcleo</string>
     <string name="dtb">DTB</string>
     <string name="initrd">Initrd</string>
     <string name="cmdline">Opciones</string>
@@ -51,8 +50,8 @@
     <string name="select_boot">Seleccione la imagen de arranque</string>.
     <string name="select_system_image">Seleccione la imagen del sistema</string>.
     <string name="selected">Archivo seleccionado.</string>
-    <string name="enter_rom_name">Por favor, introduce el nombre de la ROM para el título en el menú. Puedes elegir libremente.</strong>
-    <string name="enter_rom_folder">Por favor, introduce el nombre del directorio de la ROM. Esto no debe existir ya. En caso de duda, mantén la configuración por defecto.</strong>
+    <string name="enter_rom_name">Por favor, introduce el nombre de la ROM para el título en el menú. Puedes elegir libremente.</string>
+    <string name="enter_rom_folder">Por favor, introduce el nombre del directorio de la ROM. Esto no debe existir ya. En caso de duda, mantén la configuración por defecto.</string>
     <string name="rom_type_add_sailfish">Sailfish OS</string>.
     <string name="title_activity_main">Actividad principal</string>.
     <string name="nav_header_subtitle">¡Un móvil para empezar con todos!</string>
@@ -73,30 +72,30 @@
     <string name="unknown_os">Sistema operativo desconocido</string>.
     <string name="ut">Ubuntu Touch</string>
     <string name="android">Android</string>
-    <string name="about">Acerca de</strong>
-    <string name="welcome">¡Bienvenido!
-    <string name="wizard_deviceinstaller_text">¡Hecho! Siga los siguientes pasos para instalar el gestor de arranque Volla. Si cambia de opinión, puede hacer clic en Cancelar. Todavía no se ha cambiado nada.</strong>
-    <string name="wizard_devicerominstaller_text">¡Hecho! Siga los siguientes pasos para instalar su sistema operativo. Si cambia de opinión, puede hacer clic en Cancelar. Todavía no se ha cambiado nada, excepto tu tarjeta SD.</strong>
-    <string name="installerWelcome">Bienvenido al instalador del gestor de arranque Volla. Esto instalará Volla Boot Manager en su dispositivo. No hace cambios fácilmente deshacibles, por favor no lo instale sin conocerlos. Tenga en cuenta los requisitos previos: ¡puede que tenga que formatear algo manualmente! Descargo de responsabilidad:</strong>
+    <string name="about">Acerca de</string>
+    <string name="welcome">¡Bienvenido!</string>.
+    <string name="wizard_deviceinstaller_text">¡Hecho! Siga los siguientes pasos para instalar el gestor de arranque Volla. Si cambia de opinión, puede hacer clic en Cancelar. Todavía no se ha cambiado nada.</string>
+    <string name="wizard_devicerominstaller_text">¡Hecho! Siga los siguientes pasos para instalar su sistema operativo. Si cambia de opinión, puede hacer clic en Cancelar. Todavía no se ha cambiado nada, excepto tu tarjeta SD.</string>
+    <string name="installerWelcome">Bienvenido al instalador del gestor de arranque Volla. Esto instalará Volla Boot Manager en su dispositivo. No hace cambios fácilmente deshacibles, por favor no lo instale sin conocerlos. Tenga en cuenta los requisitos previos: ¡puede que tenga que formatear algo manualmente! Descargo de responsabilidad:</string>
     <string name="next">Siguiente</string>
     <!-- Asistente de navegación de la página -->
     <string name="prev">Atrás</string>
     <string name="help">Ayuda</string>
     <string name="unknown_part">Tipo de partición desconocido</string>.
-    <string name="sd_mbr">Esta tarjeta SD utiliza el antiguo esquema de particiones MBR pero se requiere GPT. Se puede convertir a GPT, pero esto puede provocar la pérdida de datos. Por favor, haga una copia de seguridad de sus datos.</strong>
+    <string name="sd_mbr">Esta tarjeta SD utiliza el antiguo esquema de particiones MBR pero se requiere GPT. Se puede convertir a GPT, pero esto puede provocar la pérdida de datos. Por favor, haga una copia de seguridad de sus datos.</string>
     <string name="sd_err">Error desconocido.</string>
     <string name="convert">Convertir</string>.
     <string name="failed">Fracasado</string>
-    <string name="exitoso">Exitoso</strong>
-    <string name="free_space">Espacio libre</strong>
+    <string name="successful">Exitoso</string>
+    <string name="free_space">Espacio libre</string>
     <string name="partid" tools:ignore="PluralsCandidate">Partición %1$d denotada por \"%2$s\"</string>
     <string name="partidn" tools:ignore="PluralsCandidate">partición %1$d</string>
     <string name="partidt" tools:ignore="PluralsCandidate">%1$s con id %2$d marcado \ "%3$s\"</string>
     <string name="create">Crear</string>.
-    <string name="backup">respaldo</strong>
-    <string name="restaurar">Restaurar</string>
+    <string name="backup">respaldo</string>
+    <string name="restore">Restaurar</string>
     <string name="restoresparse">Restaurar Sparse</string>
-    <string name="backup_msg">Bienvenido a la sencilla herramienta de backup &amp; restauración. ¿Qué quieres hacer con esta partición?</strong>
+    <string name="backup_msg">Bienvenido a la sencilla herramienta de backup &amp; restauración. ¿Qué quieres hacer con esta partición?</string>
     <string name="copy_file">Copiar archivo...</string>
     <string name="sector_range">Rango del sector</string>.
     <string name="label">Etiqueta</string>
@@ -110,14 +109,14 @@
     <string name="system_part">Datos del sistema operativo</string>.
     <string name="data_part">Datos del usuario del SO</string>
     <string name="data">Datos</string>
-    <string name="sistema">Sistema</string>
-    <string name="update_real_rom">¡No puedes actualizar tu ROM real a través del ABM!
+    <string name="system">Sistema</string>
+    <string name="update_real_rom">¡No puedes actualizar tu ROM real a través del ABM!</string>.
     <string name="kernel_update">Actualización del sistema</string>
     <string name="kernel_update_msg">Estás a punto de actualizar el sistema de la ROM seleccionada y regenerar su configuración.</string>
-    <string name="select_part">Seleccione una partición no utilizada de su tarjeta SD configurada con el siguiente tipo: %1$s. Por favor, asegúrese de que es la partición correcta, pero todavía puede cancelar si no está seguro. Si aún no has creado una partición, hazlo primero.
-    <¡Cómo se utiliza una partición -->
+    <string name="select_part">Seleccione una partición no utilizada de su tarjeta SD configurada con el siguiente tipo: %1$s. Por favor, asegúrese de que es la partición correcta, pero todavía puede cancelar si no está seguro. Si aún no has creado una partición, hazlo primero.</string>.
+    <!-- Cómo se utiliza una partición -->
     <string name="usage">Uso</string>.
-    <string name="select_droidian_gsi">Selecciona el GSI droide</string>.
+    <string name="select_droidian_gsi">Selecciona el GSI droide.</string>
     <string name="select_droidian_adapt">Selecciona la adaptación droidiana</string>
     <string name="select_droidian_devtools">Selecciona Droidian DevTools</string>
     <string name="rom_type_add_droidian">GSI de Android con adaptación y DevTools</string>

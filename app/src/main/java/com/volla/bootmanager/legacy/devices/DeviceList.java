@@ -19,6 +19,7 @@ public class DeviceList {
     static {
         deviceList.add("mimameid");
         deviceList.add("yggdrasil");
+        deviceList.add("yggdrasilx");
         bspList.put("k63v2_64_bsp", Collections.singletonList("yggdrasil"));
         bspList.put("GS5", Collections.singletonList("mimameid"));
     }
@@ -36,13 +37,22 @@ public class DeviceList {
                 d.spartsize = 7340031f;
                 d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, DoInstallWizardPageFragment.class);
                 break;
+            case "yggdrasilx":
+                d = new DeviceModel();
+                d.codename = "yggdrasilx";
+                d.viewname = "Volla Phone X";
+                d.bdev = "/dev/block/mmcblk1";
+                d.pbdev = "/dev/block/mmcblk1p";
+                d.spartsize = 9437184f;
+                d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, DoInstallWizardPageFragment.class);
+                break;
             case "mimameid":
                 d = new DeviceModel();
                 d.codename = "mimameid";
                 d.viewname = "Volla Phone 22";
                 d.bdev = "/dev/block/mmcblk1";
                 d.pbdev = "/dev/block/mmcblk1p";
-                d.spartsize = 7340031f;
+                d.spartsize = 9437184f;
                 d.flow = Arrays.asList(DeviceInstallerWizardPageFragment.class, DroidBootSelectorWizardPageFragment.class, DoInstallWizardPageFragment.class);
                 break;
             default:

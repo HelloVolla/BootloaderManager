@@ -394,6 +394,7 @@ public class SDCardFragment extends Fragment {
         final String bdev = DeviceList.getModel(model).bdev;
         SDUtils.setupCodes(requireContext());
         AtomicReference<SDUtils.SDPartitionMeta> meta = new AtomicReference<>(generateMeta(DeviceList.getModel(model)));
+        Log.e("abm", String.join("", Shell.sh("sgdisk " + bdev + " --print").exec().getOut()));
         if (meta.get() == null) {
             if (String.join("",Shell.sh("sgdisk " + bdev + " --print").exec().getOut()).contains("invalid GPT and valid MBR")) {
                 ArrayList<String> out = new ArrayList<>();

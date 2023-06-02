@@ -82,6 +82,7 @@
     <string name="unknown_os">Unknown OS</string>
     <string name="ut">Ubuntu Touch</string>
     <string name="android">Android</string>
+    <string name="droidian">Droidian</string>
     <string name="about">About</string>
     <string name="welcome">Welcome!</string>
     <string name="wizard_deviceinstaller_text">Ready! Please follow the next steps for installing Volla Boot Manager. If you redecided, you can click cancel. Nothing was changed until now.</string>
@@ -127,10 +128,9 @@
     <string name="select_part">Please select an unused partition on your SD card configured with the following type: %1$s. Please make sure it really is the correct one, you can cancel and label it if unsure. If you didn\'t create one yet, do that first.</string>
     <!-- How an partition is used -->
     <string name="usage">Usage</string>
-    <string name="select_droidian_gsi">Select Droidian GSI</string>
-    <string name="select_droidian_adapt">Select Droidian Adaption</string>
-    <string name="select_droidian_devtools">Select Droidian DevTools</string>
-    <string name="rom_type_add_droidian">Droidian GSI with Adaption and DevTools</string>
+    <string name="select_droidian">Select Droidian ZIP</string>
+    <string name="rom_type_add_droidian">Droidian (phosh) (with fastboot-flashable ZIP)</string>
+    <string name="rom_type_add_droidian_cutie">Droidian (Cutie Shell) (with fastboot-flashable ZIP)</string>
 	<string name="menu">Menu</string>
     <string name="internal_storage_space">Internal Storage Space</string>
     <string name="internal_space_failed">Requires %1$d GB Free space</string>

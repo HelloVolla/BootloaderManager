@@ -89,6 +89,10 @@ public class ROMFragment extends Fragment {
                     holder.label.setText(getString(R.string.rom_type_add_sailfish));
                     holder.pic.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_sailfish_os_logo));
                     break;
+                case "Droidian":
+                    holder.label.setText(getString(R.string.droidian));
+                    holder.pic.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_droidian_logo));
+                    break;
                 case "droid":
                     holder.label.setText(getString(R.string.android));
                     holder.pic.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_roms));
